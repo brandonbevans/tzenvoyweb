@@ -3,6 +3,7 @@
     <h1>{{ msg }}</h1>
     <p>
       WELCOME TO STAKE CITY BABY
+      Basically you delegate to me and then I'll build cool things
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
     <h3>Installed CLI Plugins</h3>
