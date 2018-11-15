@@ -1,14 +1,14 @@
 <template>
   <v-app dark>
-    <FrontPage />
     <router-view></router-view>
+    <SPA />
   </v-app>
 </template>
 
 <script>
-    import FrontPage from '@/components/FrontPage'
+    import SPA from '@/components/SPA'
     export default {
         name: "App",
-        components: {FrontPage}
+        components: {SPA}
     }
 </script>
