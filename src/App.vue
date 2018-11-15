@@ -1,18 +1,14 @@
 <template>
-  <v-app>
-    <Header />
-    <v-content class="grey lighten-3">
-      <v-container fluid>
-        <router-view></router-view>
-      </v-container>
-    </v-content>
+  <v-app dark>
+    <FrontPage />
+    <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-    import Header from '@/components/Header'
+    import FrontPage from '@/components/FrontPage'
     export default {
         name: "App",
-        components: {Header}
+        components: {FrontPage}
     }
 </script>
