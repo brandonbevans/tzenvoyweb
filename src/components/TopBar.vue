@@ -1,11 +1,12 @@
 <template>
-    <v-toolbar flat class="transparent">
-        <v-toolbar-title extension>Lucky Stakes</v-toolbar-title>
+    <v-toolbar flat class="transparent" absolute scroll-off-screen scroll-target="#about">
+        <v-toolbar-title extension>tzEnvoy</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items>
-            <router-link to="#delegate" tag="button"><v-btn flat ripple>Delegate</v-btn></router-link>
-            <router-link to="#rewards" tag="button"><v-btn flat ripple>Reward Calculator</v-btn></router-link>
-            <router-link to="#about" tag="button"><v-btn flat ripple>About</v-btn></router-link>
+            <router-link to="#delegate" tag="button"><v-btn flat ripple v-scroll-to="'#delegate'">Delegate</v-btn></router-link>
+            <router-link to="#projects" tag="button"><v-btn flat ripple v-scroll-to="'#projects'">Projects</v-btn></router-link>
+            <router-link to="#rewards" tag="button"><v-btn flat ripple v-scroll-to="'#rewards'">Reward Calculator</v-btn></router-link>
+            <router-link to="#about" tag="button"><v-btn flat ripple v-scroll-to="'#about'">About</v-btn></router-link>
         </v-toolbar-items>
     </v-toolbar>
 </template>

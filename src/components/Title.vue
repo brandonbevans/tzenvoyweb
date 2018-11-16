@@ -3,14 +3,15 @@
             align-center
             column
             justify-center
+            id="delegate"
     >
-        <h1 class="display-4 font-weight-bold mb-3">Lucky Stakes</h1>
+        <h1 class="display-4 font-weight-bold mb-3">tzEnvoy</h1>
         <v-card flat >
             <v-container fill-height class="clickable"
                          v-clipboard:copy=bakingAddress
                          v-clipboard:success=onCopy>
-                <v-layout fill-height>
-                    <v-flex xs12 align-end flexbox>
+                <v-layout fill-height row wrap>
+                    <v-flex xs12 align-end>
                         <span class="headline" v-text=bakingAddress></span>
                     </v-flex>
                 </v-layout>
@@ -43,5 +44,7 @@
 </script>
 
 <style scoped>
-
+.clickable {
+    cursor: pointer;
+}
 </style>
