@@ -13,6 +13,7 @@
     "@babel/polyfill": "^7.0.0-rc.1",
     "express": "^4.16.4",
     "express-force-https": "^1.0.0",
+    "express-https-redirect": "^1.0.0",
     "vue": "^2.5.17",
     "vue-clipboard2": "^0.2.1",
     "vue-router": "^3.0.1",
