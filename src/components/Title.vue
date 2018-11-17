@@ -6,7 +6,7 @@
             id="delegate"
     >
         <h1 class="display-4 font-weight-bold mb-3">tzEnvoy</h1>
-        <v-card flat >
+        <v-card flat class="mt-3">
             <v-container fill-height class="clickable"
                          v-clipboard:copy=bakingAddress
                          v-clipboard:success=onCopy>
@@ -17,10 +17,23 @@
                 </v-layout>
             </v-container>
         </v-card>
-        <a :href=tzscanLink target="_blank" class="text--darken-1 white--text">tzscan</a>
+        <a :href=tzscanLink target="_blank" class="text--darken-1 white--text mb-5 pb-5">tzscan</a>
         <div class="text-xs-center" :style="{ visibility: showCopy }">
             <v-chip dark color="success" >Copied</v-chip>
         </div>
+        <v-card class="mb-4">
+            <v-container fill-height
+                         v-clipboard:copy=bakingAddress
+                         v-clipboard:success=onCopy>
+                <v-layout fill-height row wrap>
+                    <v-flex xs12 align-end>
+                        <span class="title">Fee: 10%</span><br>
+                        <span class="subheading">Rewards are sent automatically as the network releases them
+                        </span>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </v-card>
     </v-layout>
 </template>
 

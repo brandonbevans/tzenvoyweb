@@ -1,4 +1,4 @@
-# stakerfront
+# tzEnvoy
 
 ## Project setup
 ```
