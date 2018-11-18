@@ -1,7 +1,7 @@
 <template>
     <v-content>
+        <TopBar />
         <v-parallax :src="require('@/assets/bake.jpg')" height="800">
-            <TopBar />
             <Title />
         </v-parallax>
         <v-layout column>

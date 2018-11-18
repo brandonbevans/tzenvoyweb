@@ -1,6 +1,10 @@
 <template>
-    <v-toolbar flat class="transparent" absolute scroll-off-screen scroll-target="#about">
-        <v-toolbar-title extension>tzEnvoy</v-toolbar-title>
+    <v-toolbar flat class="transparent" fixed>
+        <v-flex xs1>
+            <v-card dark flat class="transparent mt-5 pt-3">
+                <v-img :src="require('@/assets/white_logo_transparent_background.png')" contain></v-img>
+            </v-card>
+        </v-flex>
         <v-spacer></v-spacer>
         <v-toolbar-items>
             <router-link to="#delegate" tag="button"><v-btn flat ripple v-scroll-to="'#delegate'">Delegate</v-btn></router-link>
