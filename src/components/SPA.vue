@@ -11,6 +11,10 @@
             <v-flex>
                 <RewardCalculator />
             </v-flex>
+            <v-divider />
+            <v-flex>
+                <ReportGenerator />
+            </v-flex>
             <v-flex>
                 <About />
             </v-flex>
@@ -26,9 +30,10 @@
     import Projects from '@/components/Projects'
     import RewardCalculator from "@/components/RewardCalculator"
     import Footer from '@/components/Footer'
+    import ReportGenerator from "./ReportGenerator";
     export default {
         name: 'SPA',
-        components: {RewardCalculator, TopBar, Title, About, Projects, Footer}
+        components: {ReportGenerator, RewardCalculator, TopBar, Title, About, Projects, Footer}
     }
 </script>
 
