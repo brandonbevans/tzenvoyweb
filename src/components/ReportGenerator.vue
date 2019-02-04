@@ -51,10 +51,14 @@
                 })
 
                 let csvContent = "data:text/csv;charset=utf-8,";
-                let headers = ["Timestamp", "Amount (XTZ)", "Sender", "Destination"]
+                let headers = ["Timestamp", "Currency", "Amount", "Sender", "Destination", "Type", "Fee"]
                 csvContent += headers.join(",") + "\r\n"
                 rows.forEach(rowObject => {
-                    let row = rowObject.timestamp + "," + rowObject.amount + "," + rowObject.sender + "," + rowObject.destination;
+                    let row = rowObject.timestamp + "," + "XTZ" + "," +
+                        rowObject.amount + "," +
+                        rowObject.sender + "," +
+                        rowObject.destination + "," +
+                        "REWARD" + "," + "0";
                     csvContent += row + "\r\n";
                 })
                 let encodedUri = encodeURI(csvContent);
