@@ -40,7 +40,7 @@
         data: function() {
             return {
                 ktAddress: "",
-                rewardsRate: .8995,
+                rewardsRate: .899,
                 cycles: [],
                 headers: [
                     { text: 'Cycle', value: 'cycle'},
