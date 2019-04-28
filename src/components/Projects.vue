@@ -36,7 +36,7 @@
                 "that running a baker in stealth mode isn't enough. For a higher level of self governance, bakers also " +
                 "have a responsibility to represent the collective opinion of their constituents.<br><br>" +
                 "<h3>TzTownhall is live!</h3><br>" +
-                "Check it out here <a href='http://www.tztownhall.com'>here</a> "
+                "Check it out <a href='http://www.tztownhall.com'>here</a> "
         })
     }
 </script>
