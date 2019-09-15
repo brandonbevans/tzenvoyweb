@@ -17,11 +17,7 @@
         name: "About",
         data: function() {
             return {
-                bakingDescription: "We're a group of Tezos fanatics who will continue to develop on the" +
-                    " Tezos network. By delegating to us, you're joining a team that will help scale and contribute " +
-                    " to the Tezos ecosystem. " +
-                    " If you have grant ideas, have questions about the delegation process, or want to reach out" +
-                    " for any other reason - please contact us!"
+                bakingDescription: ""
             }
         }
     }

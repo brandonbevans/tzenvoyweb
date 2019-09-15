@@ -29,7 +29,7 @@
                 <v-layout fill-height row wrap>
                     <v-flex xs12 align-end>
                         <span class="title">Fee: 10%</span><br>
-                        <span class="subheading">Rewards are sent automatically as the network releases them</span>
+                        <span class="subheading">Rewards are sent automatically as the network releases them.<br>We will not be baking for Dune Network.</span>
                     </v-flex>
                 </v-layout>
             </v-container>
