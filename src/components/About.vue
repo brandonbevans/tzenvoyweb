@@ -4,6 +4,7 @@
             <v-container align-center md3>
                 <v-layout align-center justify-center>
                     <v-flex xs12 flexbox>
+                        <span v-text=emailAddress ></span>
                         <span v-text=bakingDescription ></span>
                     </v-flex>
                 </v-layout>
@@ -17,7 +18,8 @@
         name: "About",
         data: function() {
             return {
-                bakingDescription: ""
+                bakingDescription: "",
+                emailAddress: "Contact: tzenvoy@gmail.com"
             }
         }
     }
