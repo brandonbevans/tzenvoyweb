@@ -5,7 +5,7 @@
                 <v-flex xs12>
                     <h2 class="headline">Report Generator</h2>
                     <div>Enter your KT address to generate a CSV with all of your received rewards:</div>
-                    <input v-model="ktAddress" placeholder="KT1....."><v-btn @click="generateReport">Generate</v-btn>
+                    <input v-model="address" placeholder="address"><v-btn @click="generateReport">Generate</v-btn>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -18,7 +18,7 @@
         name: "ReportGenerator",
         data: function() {
             return {
-                ktAddress: "",
+                address: "",
                 txData: [],
                 rows: []
             }
@@ -26,12 +26,12 @@
         methods: {
             generateReport: function() {
                 axios
-                    .get("https://api6.tzscan.io/v3/operations/" + this.ktAddress + "?type=Transaction")
+                    .get("https://api.tzstats.com/tables/flow?address=" + this.address + "&operation=transaction&category=balance")
                     .then(response => {
                         if (response.status === 200) {
-                            this.txData = response.data.map(op => op.type.operations).flat().filter(tx =>
-                                tx.src.tz === "tz1i9imTXjMAW5HP5g3wq55Pcr43tDz8c3VZ" ||
-                                tx.src.tz === "tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh"
+                            this.txData = response.data.filter(tx =>
+                                tx[19] === "tz1i9imTXjMAW5HP5g3wq55Pcr43tDz8c3VZ" ||
+                                tx[19] === "tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh"
                             )
                             this.convertToCsv(this.txData)
                         } else {
@@ -41,14 +41,14 @@
             },
             convertToCsv: function(txs) {
                 let rows = txs.map(tx => ({
-                    timestamp: tx.timestamp,
-                    amount: tx.amount,
-                    destination: tx.destination.tz,
-                    sender: tx.src.tz
+                    timestamp: tx[3],
+                    amount: tx[9],
+                    destination: tx[18],
+                    sender: tx[19]
                 }))
-                rows.forEach(row => {
-                    row.amount = row.amount / 1000000
-                })
+                // rows.forEach(row => {
+                //     row.amount = row.amount / 1000000
+                // })
 
                 let csvContent = "data:text/csv;charset=utf-8,";
                 let headers = ["Timestamp", "Currency", "Amount", "Sender", "Destination", "Type", "Fee"]
