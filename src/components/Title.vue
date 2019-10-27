@@ -18,7 +18,7 @@
                 </v-layout>
             </v-container>
         </v-card>
-        <a :href=tzscanLink target="_blank" class="text--darken-1 white--text">tzscan</a>
+        <a :href=tzstatsLink target="_blank" class="text--darken-1 white--text">tzstats</a>
         <div class="text-xs-center mb-5 pb-5" :style="{ visibility: showCopy }">
             <v-chip dark color="success" >Copied</v-chip>
         </div>
@@ -43,7 +43,7 @@
         data: function() {
             return {
                 bakingAddress: "tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh",
-                tzscanLink: "https://tzscan.io/tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh",
+                tzstatsLink: "https://tzstats.com/tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh",
                 showCopy: "hidden",
                 title: "tzEnvoy",
                 subtitle: "Baking, Development, and more"

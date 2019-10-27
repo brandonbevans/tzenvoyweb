@@ -26,7 +26,11 @@
         methods: {
             generateReport: function() {
                 axios
-                    .get("https://api.tzstats.com/tables/flow?address=" + this.address + "&operation=transaction&category=balance")
+                    .get("https://api.tzstats.com/tables/flow?address=" + this.address + "&operation=transaction&category=balance", {
+                        headers: {
+                            'Access-Control-Allow-Origin': '*'
+                        }
+                    })
                     .then(response => {
                         if (response.status === 200) {
                             this.txData = response.data.filter(tx =>
