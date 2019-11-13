@@ -5,7 +5,7 @@
                 <v-flex xs12>
                     <h2 class="headline">Rewards Calculator</h2>
                     <div>Enter your KT address to see your rewards:</div>
-                    <input v-model="ktAddress" placeholder="KT1....."><v-btn @click="renderRewardsTable">Calculate</v-btn>
+                    <input v-model="ktAddress" placeholder="address"><v-btn @click="renderRewardsTable">Calculate</v-btn>
                 </v-flex>
                 <v-flex>
                     <v-data-table :headers=headers :items=cycles

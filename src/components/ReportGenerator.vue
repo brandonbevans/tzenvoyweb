@@ -27,9 +27,7 @@
             generateReport: function() {
                 axios
                     .get("https://api.tzstats.com/tables/flow?address=" + this.address + "&operation=transaction&category=balance", {
-                        headers: {
-                            'Access-Control-Allow-Origin': '*'
-                        }
+                        crossdomain: true
                     })
                     .then(response => {
                         if (response.status === 200) {
@@ -49,20 +47,19 @@
                     amount: tx[9],
                     destination: tx[18],
                     sender: tx[19]
-                }))
+                })).filter(x => x.amount > 0)
                 // rows.forEach(row => {
                 //     row.amount = row.amount / 1000000
                 // })
 
                 let csvContent = "data:text/csv;charset=utf-8,";
-                let headers = ["Timestamp", "Currency", "Amount", "Sender", "Destination", "Type", "Fee"]
+                let headers = ["Transaction Type", "Buy Amount", "Buy Currency", "Date"]
                 csvContent += headers.join(",") + "\r\n"
                 rows.forEach(rowObject => {
-                    let row = rowObject.timestamp + "," + "XTZ" + "," +
+                    let row =
+                        "Income" + "," +
                         rowObject.amount + "," +
-                        rowObject.sender + "," +
-                        rowObject.destination + "," +
-                        "REWARD" + "," + "0";
+                        "XTZ" + "," + new Date(rowObject.timestamp).toISOString()
                     csvContent += row + "\r\n";
                 })
                 let encodedUri = encodeURI(csvContent);
