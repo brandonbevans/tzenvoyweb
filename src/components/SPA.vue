@@ -8,9 +8,9 @@
             <v-flex>
                 <Projects />
             </v-flex>
-            <v-flex>
-                <RewardCalculator />
-            </v-flex>
+<!--            <v-flex>-->
+<!--                <RewardCalculator />-->
+<!--            </v-flex>-->
             <v-divider />
             <v-flex>
                 <ReportGenerator />

@@ -11,7 +11,7 @@
                     </v-flex>
                     <v-flex xs6>
                         <h3 class="headline">Projects</h3><br><br>
-                        <h4 class="subheading"><b>TownHall</b></h4>
+                        <h4 class="subheading"><b>BakeToBank</b></h4>
                         <span v-html="townHallDescription"></span>
                         <div> </div>
                     </v-flex>
@@ -25,7 +25,7 @@
     export default {
         name: "Projects",
         data: () => ({
-            townHallDescription: "TownHall has essentially been added in Agora. More ideas are in the works"
+            townHallDescription: "Once USDTZ comes into fruition I'd like to build a solution for delegators to split their rewards in XTZ and USDTZ, effectively being able to take payout in cash."
         })
     }
 </script>

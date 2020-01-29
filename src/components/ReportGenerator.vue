@@ -27,7 +27,10 @@
             generateReport: function() {
                 axios
                     .get("https://api.tzstats.com/tables/flow?address=" + this.address + "&operation=transaction&category=balance", {
-                        crossdomain: true
+                        crossdomain: true,
+                        headers: {
+                            'Access-Control-Allow-Origin': '*',
+                        }
                     })
                     .then(response => {
                         if (response.status === 200) {

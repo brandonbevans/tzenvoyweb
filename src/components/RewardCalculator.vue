@@ -57,7 +57,14 @@
         methods: {
             renderRewardsTable: function() {
                 axios
-                    .get("https://api6.tzscan.io/v3/delegator_rewards/"+this.ktAddress)
+                    .get("https://api.tzstats.com/explorer/tip")
+                    .then(response => {
+                        if (response.status === 200) {
+                            this.cycle = response.data.cycle
+
+                        }
+                    })
+                    .get("https://api.baking-bad.org/v1/rewards/tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh"+this.ktAddress)
                     .then(response => {
                         if (response.status === 200) {
                             this.cycles = response.data.filter(row =>
