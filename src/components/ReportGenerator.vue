@@ -25,24 +25,17 @@
         },
         methods: {
             generateReport: function() {
-                // axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
-                // axios.defaults.withCredentials = true;
                 axios.get("https://api.tzkt.io/v1/Accounts/" + this.address + "/operations?limit=1000", {
-                        // crosssite: true,
-                        // headers: {
-                        // //     // 'Access-Control-Allow-Credentials': true,
-                        //     'Access-Control-Allow-Origin': '*',
-                        //     'Access-Control-Allow-Headers': 'access-control-allow-origin'
-                        // //     // 'Accept': 'application/json'
-                        // }
+
                     })
                     .then(response => {
-                        // eslint-disable-next-line
-                        console.log(response)
                         if (response.status === 200) {
                             this.txData = response.data.filter(tx =>
+                                typeof tx.sender !== 'undefined' &&
+                                typeof tx.target !== 'undefined' && (
                                 tx.sender.address === "tz1i9imTXjMAW5HP5g3wq55Pcr43tDz8c3VZ" ||
-                                tx.sender.address === "tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh"
+                                tx.sender.address === "tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh") &&
+                                tx.target.address === this.address
                             )
                             this.convertToCsv(this.txData)
                         } else {
