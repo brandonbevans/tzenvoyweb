@@ -4,7 +4,7 @@
             <v-layout align-center>
                 <v-flex xs12>
                     <h2 class="headline">Report Generator</h2>
-                    <div>Enter your KT address to generate a CSV with all of your received rewards:</div>
+                    <div>Enter your Tezos address to generate a CSV with all of your received rewards:</div>
                     <input v-model="address" placeholder="address"><v-btn @click="generateReport">Generate</v-btn>
                 </v-flex>
             </v-layout>
