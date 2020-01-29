@@ -25,18 +25,24 @@
         },
         methods: {
             generateReport: function() {
-                axios
-                    .get("https://api.tzstats.com/tables/flow?address=" + this.address + "&operation=transaction&category=balance", {
-                        crossdomain: true,
-                        headers: {
-                            'Access-Control-Allow-Origin': '*',
-                        }
+                // axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+                // axios.defaults.withCredentials = true;
+                axios.get("https://api.tzkt.io/v1/Accounts/" + this.address + "/operations?limit=1000", {
+                        // crosssite: true,
+                        // headers: {
+                        // //     // 'Access-Control-Allow-Credentials': true,
+                        //     'Access-Control-Allow-Origin': '*',
+                        //     'Access-Control-Allow-Headers': 'access-control-allow-origin'
+                        // //     // 'Accept': 'application/json'
+                        // }
                     })
                     .then(response => {
+                        // eslint-disable-next-line
+                        console.log(response)
                         if (response.status === 200) {
                             this.txData = response.data.filter(tx =>
-                                tx[19] === "tz1i9imTXjMAW5HP5g3wq55Pcr43tDz8c3VZ" ||
-                                tx[19] === "tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh"
+                                tx.sender.address === "tz1i9imTXjMAW5HP5g3wq55Pcr43tDz8c3VZ" ||
+                                tx.sender.address === "tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh"
                             )
                             this.convertToCsv(this.txData)
                         } else {
@@ -46,10 +52,10 @@
             },
             convertToCsv: function(txs) {
                 let rows = txs.map(tx => ({
-                    timestamp: tx[3],
-                    amount: tx[9],
-                    destination: tx[18],
-                    sender: tx[19]
+                    timestamp: tx.timestamp,
+                    amount: tx.amount / 1000000,
+                    destination: tx.target.address,
+                    sender: tx.sender.address
                 })).filter(x => x.amount > 0)
                 // rows.forEach(row => {
                 //     row.amount = row.amount / 1000000
