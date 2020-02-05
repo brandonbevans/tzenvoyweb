@@ -6,6 +6,9 @@
             id="delegate"
     >
         <h1 class="display-4 mb-3 pt-5" v-text="title"></h1>
+        <h1 class="display-4 mb-3 pt-5" v-text="shutdown"></h1>
+        <br>
+        <span class="subheading">Please switch to a new baker. The last cycle that Tz Envoy will payout is cycle 200!</span>
         <h2 class="display-1" v-text="subtitle"></h2>
         <v-card flat class="mt-3">
             <v-container fill-height class="clickable"
@@ -78,7 +81,8 @@
                 tzstatsLink: "https://tzstats.com/tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh",
                 showCopy: "hidden",
                 title: "tzEnvoy",
-                subtitle: "Baking, Development, and more"
+                subtitle: "Baking, Development, and more",
+                shutdown: "IS SHUTTING DOWN!"
             }
         },
         methods: {
