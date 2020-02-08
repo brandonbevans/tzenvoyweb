@@ -1,35 +1,23 @@
 <template>
-    <v-card>
     <v-card color="grey darken-2" id="rewards">
         <v-container grid-list-md text-xs-center>
             <v-layout align-center>
                 <v-flex xs12>
-                    <h2 class="headline">Report Generator</h2>
-                    <div>Enter your Tezos address to generate a CSV with all of your received rewards:</div>
-                    <input v-model="address" placeholder="Your address"><v-btn @click="generateReport">Generate</v-btn>
-                </v-flex>
-            </v-layout>
-        </v-container>
-    </v-card>
-    <v-card color="grey darken-2" id="rewards2">
-        <v-container grid-list-md text-xs-center>
-            <v-layout align-center>
-                <v-flex xs12>
                     <h2 class="headline">Report Generator, Other Baker</h2>
-                    <div>Enter your Tezos address to generate a CSV with all of your received rewards:</div><br>
-                    <input v-model="bAddress" placeholder="Baker's PAYOUT address"><br><br>
-                    <input v-model="address" placeholder="Your address"><br><v-btn @click="generateReport2">Generate</v-btn>
+                    <div>Enter your Tezos address to generate a CSV with all of your received rewards:</div>
+                    <input v-model="bAddress" placeholder="Baker's PAYOUT address">
+                    <input v-model="address" placeholder="Your address"><v-btn @click="generateReport">Generate</v-btn>
+
                 </v-flex>
             </v-layout>
         </v-container>
-    </v-card>
     </v-card>
 </template>
 
 <script>
     import axios from 'axios'
     export default {
-        name: "ReportGenerator",
+        name: "ReportGenerator2",
         data: function() {
             return {
                 address: "",
@@ -48,28 +36,6 @@
                             this.txData = response.data.filter(tx =>
                                 typeof tx.sender !== 'undefined' &&
                                 typeof tx.target !== 'undefined' &&
-                                tx.status === "applied" &&
-                                (
-                                tx.sender.address === "tz1i9imTXjMAW5HP5g3wq55Pcr43tDz8c3VZ" ||
-                                tx.sender.address === "tz1iJ4qgGTzyhaYEzd1RnC6duEkLBd1nzexh") &&
-                                tx.target.address === this.address
-                            )
-                            this.convertToCsv(this.txData)
-                        } else {
-                            //generate error
-                        }
-                    })
-            },
-            generateReport2: function() {
-                axios.get("https://api.tzkt.io/v1/Accounts/" + this.address + "/operations?limit=1000", {
-
-                })
-                    .then(response => {
-                        if (response.status === 200) {
-                            this.txData = response.data.filter(tx =>
-                                typeof tx.sender !== 'undefined' &&
-                                typeof tx.target !== 'undefined' &&
-                                tx.status === "applied" &&
                                 tx.sender.address === this.bAddress &&
                                 tx.target.address === this.address
                             )

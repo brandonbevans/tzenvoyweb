@@ -1,6 +1,6 @@
 <template>
     <v-content>
-        <TopBar />
+<!--        <TopBar />-->
         <v-parallax :src="require('@/assets/bake.jpg')" height="800">
             <Title />
         </v-parallax>
